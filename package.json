@@ -1,0 +1,66 @@
+{
+  "name": "react-unittest-boilerplate",
+  "version": "1.0.0",
+  "description": "Generates a unit test boilerplate for react.",
+  "main": "index.js",
+  "scripts": {
+    "local": "webpack-dev-server --config ./webpack/config.local.js",
+    "unit-dev": "karma start ./test/unit/karma.conf.js",
+    "unit": "karma start ./test/unit/karma.conf.js --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonki/react-unittest-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "Tim Hsueh <Tim.Hsueh@innovasolutions.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lonki/react-unittest-boilerplate/issues"
+  },
+  "homepage": "https://github.com/lonki/react-unittest-boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-decorators": "^7.2.3",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "circular-dependency-plugin": "^5.0.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
+    "karma": "^3.1.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "^0.0.32",
+    "karma-webpack": "^3.0.5",
+    "react-hot-loader": "^4.6.3",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "immutable": "^4.0.0-rc.12",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.5.3",
+    "redux": "^4.0.1",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-saga": "^0.16.2",
+    "webpack": "^4.28.4"
+  }
+}
