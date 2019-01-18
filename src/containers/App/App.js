@@ -12,9 +12,6 @@ import FormInputText from 'components/FormInputText/FormInputText';
 
     return {
       viewPort: app.get('viewPort'),
-      setSectionViewPortPending: app.get('setSectionViewPortPending'),
-      setSectionViewPortSuc: app.get('setSectionViewPortSuc'),
-      setSectionViewPortErr: app.get('setSectionViewPortErr'),
     };
   }, {
     setSectionViewPort,
@@ -25,7 +22,6 @@ class App extends React.PureComponent {
   static propTypes = {
     viewPort: PropTypes.number.isRequired,
     setSectionViewPort: PropTypes.func.isRequired,
-    setSectionViewPortPending: PropTypes.bool.isRequired,
     login: PropTypes.func.isRequired,
   };
 
@@ -38,8 +34,7 @@ class App extends React.PureComponent {
   }
 
   render() {
-    const { viewPort, setSectionViewPortPending } = this.props;
-    const viewPortText = setSectionViewPortPending ? 'Loading' : viewPort;
+    const { viewPort } = this.props;
 
     return (
       <React.Fragment>
@@ -57,7 +52,7 @@ class App extends React.PureComponent {
         <section>
           <p>Redux Example</p>
           <button type="button" onClick={this.reduxButtonOnClick}>start</button>
-          <div>{viewPortText}</div>
+          <div>{viewPort}</div>
         </section>
         <hr />
         <section>
