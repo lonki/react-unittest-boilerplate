@@ -4,15 +4,16 @@ import {
   login,
 } from 'src/redux/sagas/auth';
 
-const FAKE_SERVER_DATA = {
-  TIM: {
-    account: 'Tim',
-    password: '123',
-    token: 'abc',
-    infomation: {
-      height: 175,
-      weight: 60,
-    },
+const FAKE_GET_TOKEN_DATA = {
+  result: 'success',
+  token: 'abc',
+};
+
+const FAKE_GET_IMFORMATION_DATA = {
+  result: 'success',
+  infomation: {
+    height: 170,
+    weight: 60,
   },
 };
 
@@ -26,24 +27,21 @@ describe('redux/sagas/auth', () => {
     });
 
     it('get fake member data by calling function login', () => {
-      const { TIM } = FAKE_SERVER_DATA;
-      const generator = login(TIM.account, TIM.password);
+      const generator = login('account', 'password');
       generator.next();
 
-      let mockPosts = {
-        result: 'success',
-        token: TIM.token,
-      };
-      let result = generator.next(mockPosts).value;
+      let result = generator.next(FAKE_GET_TOKEN_DATA).value;
 
-      mockPosts = {
-        infomation: TIM.infomation,
-      };
-      result = generator.next(mockPosts);
+      result = generator.next(FAKE_GET_IMFORMATION_DATA);
 
-      expect(result.value.token).toBe(TIM.token);
-      expect(result.value.infomation.height).toBe(TIM.infomation.height);
-      expect(result.value.infomation.weight).toBe(TIM.infomation.weight);
+      const {
+        token,
+        infomation,
+      } = result.value
+
+      expect(token).toBe(FAKE_GET_TOKEN_DATA.token);
+      expect(infomation.height).toBe(FAKE_GET_IMFORMATION_DATA.infomation.height);
+      expect(infomation.weight).toBe(FAKE_GET_IMFORMATION_DATA.infomation.weight);
       expect(result.done).toBe(true);
     });
   });
