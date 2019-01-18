@@ -45,10 +45,11 @@
       "react/self-closing-comp": [
         "error",
         {
-          "component": true,
+          "component": true
         }
       ],
       "jsx-a11y/no-static-element-interactions": 0,
+      "generator-star-spacing": ["error", "always", { "generators": "as-needed" }]
     },
     "globals": {
       "React": true,
@@ -60,6 +61,8 @@
       "es6": true,
       "amd": true,
       "commonjs": true,
-      "node": true
+      "node": true,
+      "mocha": true,
+      "jest": true
     }
   }
