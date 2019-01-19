@@ -59,7 +59,7 @@ class App extends React.PureComponent {
           <p>Redux Sagas Example</p>
           <FormInputText
             placeholder="Account"
-            inputText=""
+            defaultInputText=""
             onChange={() => {}}
             onFocus={() => {}}
             onBlur={() => {}}

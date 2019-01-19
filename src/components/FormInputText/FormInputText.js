@@ -7,7 +7,7 @@ export default class FormInputText extends Component {
     disabled: PropTypes.bool,
     readonly: PropTypes.bool,
     placeholder: PropTypes.string,
-    inputText: PropTypes.string,
+    defaultInputText: PropTypes.string,
     tooltipText: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -18,7 +18,7 @@ export default class FormInputText extends Component {
     disabled: false,
     readonly: false,
     placeholder: 'default placeholder',
-    inputText: '',
+    defaultInputText: '',
     tooltipText: 'default tooltipText',
     onChange: () => {},
     onFocus: () => {},
@@ -30,22 +30,8 @@ export default class FormInputText extends Component {
 
     this.state = {
       isShowTooltip: false,
-      inputText: props.inputText,
+      inputText: props.defaultInputText,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { inputText } = this.props;
-    const {
-      inputText: nextInputText,
-    } = nextProps;
-
-    if (inputText !== nextInputText) {
-      this.setState({
-        inputText: nextInputText,
-        isShowTooltip: nextInputText !== '',
-      });
-    }
   }
 
   _handleOnChange = (e) => {
@@ -117,7 +103,7 @@ export default class FormInputText extends Component {
           classNames="form-input-tooltip"
           unmountOnExit
         >
-          <div>{tooltipText}</div>
+          <span className="form-input-tooltip-text">{tooltipText}</span>
         </CSSTransition>
       </div>
     );
