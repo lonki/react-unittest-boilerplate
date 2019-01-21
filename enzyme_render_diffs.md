@@ -65,5 +65,4 @@ only calls render but renders all children.
 
 ### Reference
 
-
 eynzme: https://airbnb.io/enzyme/docs/api/

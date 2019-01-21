@@ -6,7 +6,8 @@
   "scripts": {
     "local": "webpack-dev-server --config ./webpack/config.local.js",
     "unit-dev": "karma start ./test/unit/karma.conf.js",
-    "unit": "karma start ./test/unit/karma.conf.js --single-run"
+    "unit": "karma start ./test/unit/karma.conf.js --single-run",
+    "unit-coverage": "cross-env BABEL_ENV=test karma start ./test/unit/karma.coverage.conf.js --single-run"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,9 @@
     "axios-mock-adapter": "^1.16.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-istanbul": "^5.1.0",
     "circular-dependency-plugin": "^5.0.2",
+    "cross-env": "^5.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.12.0",
@@ -41,6 +44,7 @@
     "eslint-plugin-react": "^7.12.3",
     "karma": "^3.1.4",
     "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
     "karma-jasmine": "^2.0.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "^0.0.32",
