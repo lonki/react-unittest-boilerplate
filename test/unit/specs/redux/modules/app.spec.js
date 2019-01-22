@@ -5,6 +5,7 @@ import { app as cons } from 'redux/constants';
 import { fromJS } from 'immutable';
 
 import reducer, {
+  setSectionViewPort,
   getFakeApi,
 } from 'src/redux/modules/app';
 
@@ -37,14 +38,20 @@ describe('redux/modules/app', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(fromJS({
       viewPort: 0,
+      getFakeApiPedding: false,
+      getFakeApiSuc: false,
+      getFakeApiErr: false,
     }));
   });
 
   it('should handle SET_SECTION_VIEWPORT', () => {
-    const result = reducer(fromJS({}), {
+    const expectedAction = {
       type: cons.SET_SECTION_VIEWPORT,
       viewPort: 200,
-    });
+    }
+    const result = reducer(fromJS({}), expectedAction);
+
+    expect(setSectionViewPort(200)).toEqual(expectedAction);
     expect(result.get('viewPort')).toEqual(200);
   });
 });

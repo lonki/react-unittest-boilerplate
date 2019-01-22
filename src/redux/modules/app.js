@@ -4,6 +4,9 @@ import axios from 'axios';
 
 const initialState = fromJS({
   viewPort: 0,
+  getFakeApiPedding: false,
+  getFakeApiSuc: false,
+  getFakeApiErr: false,
 });
 
 export default function reducer(state = initialState, action = {}) {
@@ -13,6 +16,27 @@ export default function reducer(state = initialState, action = {}) {
 
       return state.merge({
         viewPort,
+      });
+    }
+    case cons.GET_FAKE_API_PENDING: {
+      return state.merge({
+        getFakeApiPedding: true,
+        getFakeApiSuc: false,
+        getFakeApiErr: false,
+      });
+    }
+    case cons.GET_FAKE_API_FULFILLED: {
+      return state.merge({
+        getFakeApiPedding: false,
+        getFakeApiSuc: true,
+        getFakeApiErr: false,
+      });
+    }
+    case cons.GET_FAKE_API_REJECTED: {
+      return state.merge({
+        getFakeApiPedding: false,
+        getFakeApiSuc: false,
+        getFakeApiErr: true,
       });
     }
     default:
