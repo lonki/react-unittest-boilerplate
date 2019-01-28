@@ -52,6 +52,7 @@ export function* watchLogin() {
       yield put({ type: authActions.LOGIN_SUCCESS, memberData });
     } catch (error) {
       yield put({ type: authActions.LOGIN_FAIL });
+      throw error;
     }
   });
 }

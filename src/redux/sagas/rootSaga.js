@@ -34,6 +34,11 @@ function* startAllSagas() {
           if (isSyncError) {
             throw new Error(`Sagas was terminated because it threw an exception on startup.`);
           }
+
+          if (error.status === 403) {
+            // for token timeout
+            yield put({ type: auth.LOGOUT_ALERT });
+          }
         }
       }
     }),
