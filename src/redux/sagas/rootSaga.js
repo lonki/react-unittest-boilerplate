@@ -27,6 +27,8 @@ function* startAllSagas() {
       let isSyncError = false;
       while (!isSyncError) {
         try {
+          setTimeout(() => isSyncError = false);
+          
           yield call(saga);
 
           break;
